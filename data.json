@@ -1,0 +1,85 @@
+{
+  "site": {
+    "congregation": "Congregación Déleg",
+    "title": "Tablero Informativo",
+    "subtitle": "Información, anuncios y actividades",
+    "lastUpdated": "12 de septiembre de 2026"
+  },
+  "nextMeeting": {
+    "kicker": "PRÓXIMA REUNIÓN",
+    "title": "Reunión de fin de semana",
+    "date": "Domingo",
+    "time": "10:00 a. m.",
+    "location": "Salón del Reino",
+    "note": "Por favor, llegue con tiempo suficiente para saludar y ocupar su lugar."
+  },
+  "announcements": [
+    {
+      "title": "Limpieza del Salón",
+      "text": "Recordatorio amistoso para quienes tienen asignación esta semana.",
+      "important": true
+    },
+    {
+      "title": "Actividad de predicación",
+      "text": "Consulte con su grupo para confirmar horario y punto de encuentro.",
+      "important": false
+    },
+    {
+      "title": "Próxima asamblea",
+      "text": "Los detalles de transporte y horarios se publicarán aquí.",
+      "important": false
+    }
+  ],
+  "calendar": [
+    {
+      "month": "SEP",
+      "day": "20",
+      "title": "Actividad especial",
+      "text": "Información adicional próximamente."
+    },
+    {
+      "month": "SEP",
+      "day": "27",
+      "title": "Limpieza general",
+      "text": "Después de la reunión."
+    },
+    {
+      "month": "OCT",
+      "day": "04",
+      "title": "Recordatorio de programa",
+      "text": "Revise el programa actualizado."
+    }
+  ],
+  "quickLinks": [
+    {
+      "label": "Programa",
+      "description": "Ver programa actual",
+      "icon": "📄",
+      "url": "#"
+    },
+    {
+      "label": "Calendario",
+      "description": "Fechas importantes",
+      "icon": "📅",
+      "url": "#"
+    },
+    {
+      "label": "Limpieza",
+      "description": "Asignaciones de limpieza",
+      "icon": "🧹",
+      "url": "#"
+    },
+    {
+      "label": "Predicación",
+      "description": "Información de grupos",
+      "icon": "👥",
+      "url": "#"
+    },
+    {
+      "label": "JW.ORG",
+      "description": "Sitio oficial",
+      "icon": "🌐",
+      "url": "https://www.jw.org/es/"
+    }
+  ]
+}
