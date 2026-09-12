@@ -3,7 +3,8 @@
     "congregation": "Congregación Déleg",
     "title": "Tablero Informativo",
     "subtitle": "Información, anuncios y actividades",
-    "lastUpdated": "12 de septiembre de 2026"
+    "lastUpdated": "12 de septiembre de 2026",
+    "timezone": "America/Guayaquil"
   },
   "meetingSchedule": [
     {
@@ -25,10 +26,20 @@
       "note": "Le animamos a llegar con suficiente tiempo para saludar y ocupar su lugar."
     }
   ],
+  "cleaningRotation": {
+    "groups": 4,
+    "anchorSunday": "2026-09-06",
+    "anchorGroup": 2
+  },
+  "hospitalityRotation": {
+    "groups": 4,
+    "anchorSunday": "2026-09-06",
+    "anchorGroup": 1
+  },
   "announcements": [
     {
+      "type": "cleaning",
       "title": "Limpieza del Salón",
-      "text": "Recordatorio amistoso para el GRUPO 2 que tienen este privilegio.",
       "important": true
     },
     {
@@ -37,27 +48,27 @@
       "important": true
     },
     {
-      "title": "Próxima asamblea",
-      "text": "Asamblea de Circuito con el Representante de la Sucursal: 22 de Nov.",
-      "important": false
+      "type": "hospitality",
+      "title": "Hospitalidad",
+      "important": true
     }
   ],
   "calendar": [
     {
-      "month": "NOV",
+      "month": "Nov",
       "day": "22",
       "title": "Asamblea de Circuito con el Representante de la Sucursal",
       "text": "Haz de Jehova tu mayor alegria."
     },
     {
-      "month": "ENE",
+      "month": "Ene",
       "day": "16",
       "title": "Asamblea de Circuito con el superintendente de circuito",
       "text": "El que confia en Jehova es feliz."
     },
     {
-      "month": "ENE",
-      "day": "26 - 31",
+      "month": "Ene",
+      "day": "26 al 31",
       "title": "Visita del Superintendente de Circuito",
       "text": "Mas informacion al acercarse las fechas."
     }

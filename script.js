@@ -37,12 +37,7 @@ function getPartsInTimeZone(date, timeZone) {
   };
 }
 
-function dateKey(parts) {
-  return `${parts.year}-${String(parts.month).padStart(2, "0")}-${String(parts.day).padStart(2, "0")}`;
-}
-
 function addDaysToLocalDate(parts, days) {
-  // Use UTC only as a safe calendar arithmetic container.
   const d = new Date(Date.UTC(parts.year, parts.month - 1, parts.day + days));
   return {
     year: d.getUTCFullYear(),
@@ -52,7 +47,6 @@ function addDaysToLocalDate(parts, days) {
 }
 
 function formatMeetingDate(localDate, timeZone) {
-  // Noon UTC avoids date rollover issues for Ecuador.
   const d = new Date(Date.UTC(localDate.year, localDate.month - 1, localDate.day, 12));
   return new Intl.DateTimeFormat("es-EC", {
     timeZone,
@@ -63,21 +57,17 @@ function formatMeetingDate(localDate, timeZone) {
 }
 
 function findNextMeeting(schedule, timeZone) {
-  const now = new Date();
-  const nowLocal = getPartsInTimeZone(now, timeZone);
-
+  const nowLocal = getPartsInTimeZone(new Date(), timeZone);
   let best = null;
 
   for (const meeting of schedule) {
     let daysAhead = (meeting.day - nowLocal.weekday + 7) % 7;
-
     const [meetingHour, meetingMinute] = meeting.time.split(":").map(Number);
 
     if (daysAhead === 0) {
       const currentMinutes = nowLocal.hour * 60 + nowLocal.minute;
       const meetingMinutes = meetingHour * 60 + meetingMinute;
 
-      // At or after the meeting start time, move to next week's occurrence.
       if (currentMinutes >= meetingMinutes) {
         daysAhead = 7;
       }
@@ -95,29 +85,80 @@ function findNextMeeting(schedule, timeZone) {
   return best;
 }
 
+function parseISODateOnly(isoDate) {
+  const [year, month, day] = isoDate.split("-").map(Number);
+  return { year, month, day };
+}
+
+function utcDayNumber(parts) {
+  return Math.floor(Date.UTC(parts.year, parts.month - 1, parts.day) / 86400000);
+}
+
+function getCurrentSunday(timeZone) {
+  const nowLocal = getPartsInTimeZone(new Date(), timeZone);
+  return addDaysToLocalDate(nowLocal, -nowLocal.weekday);
+}
+
+function getRotatingGroup(rotation, timeZone) {
+  if (!rotation) return null;
+
+  const currentSunday = getCurrentSunday(timeZone);
+  const anchorSunday = parseISODateOnly(rotation.anchorSunday);
+
+  const daysDifference = utcDayNumber(currentSunday) - utcDayNumber(anchorSunday);
+  const weeksDifference = Math.floor(daysDifference / 7);
+
+  const zeroBasedAnchor = rotation.anchorGroup - 1;
+  const zeroBasedGroup =
+    ((zeroBasedAnchor + weeksDifference) % rotation.groups + rotation.groups) % rotation.groups;
+
+  return zeroBasedGroup + 1;
+}
+
 function setToday(timeZone) {
-  const now = new Date();
   const formatted = new Intl.DateTimeFormat("es-EC", {
     timeZone,
     weekday: "long",
     day: "numeric",
     month: "long",
     year: "numeric"
-  }).format(now);
+  }).format(new Date());
 
   setText("todayDate", formatted.charAt(0).toUpperCase() + formatted.slice(1));
 }
 
-function renderAnnouncements(items = []) {
+function renderAnnouncements(items = [], data, timeZone) {
   const container = document.getElementById("announcements");
-  container.innerHTML = items.length
-    ? items.map(item => `
-        <article class="announcement ${item.important ? "important" : ""}">
-          <strong>${item.title ?? ""}</strong>
-          <p>${item.text ?? ""}</p>
-        </article>
-      `).join("")
-    : '<p class="meeting-note">No hay anuncios publicados.</p>';
+
+  if (!items.length) {
+    container.innerHTML = '<p class="meeting-note">No hay anuncios publicados.</p>';
+    return;
+  }
+
+  container.innerHTML = items.map(item => {
+    let text = item.text ?? "";
+
+    if (item.type === "cleaning") {
+      const group = getRotatingGroup(data.cleaningRotation, timeZone);
+      if (group) {
+        text = `Recordatorio amistoso para el GRUPO ${group}, que tiene este privilegio esta semana.`;
+      }
+    }
+
+    if (item.type === "hospitality") {
+      const group = getRotatingGroup(data.hospitalityRotation, timeZone);
+      if (group) {
+        text = `Recordatorio para el GRUPO ${group} que tiene este privilegio.`;
+      }
+    }
+
+    return `
+      <article class="announcement ${item.important ? "important" : ""}">
+        <strong>${item.title ?? ""}</strong>
+        <p>${text}</p>
+      </article>
+    `;
+  }).join("");
 }
 
 function renderCalendar(items = []) {
@@ -180,18 +221,11 @@ async function loadBoard() {
       setText("meetingNote", nextMeeting.note);
     }
 
-    renderAnnouncements(data.announcements);
-    renderCalendar(data.calendar);
-    renderLinks(data.quickLinks);
+    renderAnnouncements(data.announcements || [], data, timeZone);
+    renderCalendar(data.calendar || []);
+    renderLinks(data.quickLinks || []);
 
-    const updated = new Intl.DateTimeFormat("es-EC", {
-      timeZone,
-      day: "numeric",
-      month: "long",
-      year: "numeric"
-    }).format(new Date());
-
-    setText("lastUpdated", `Actualizado automáticamente: ${updated}`);
+    setText("lastUpdated", `Actualizado: ${data.site?.lastUpdated ?? "—"}`);
 
   } catch (error) {
     console.error("No se pudo cargar data.json:", error);
@@ -202,6 +236,4 @@ async function loadBoard() {
 }
 
 loadBoard();
-
-// Re-evaluate every minute so the card changes automatically while the page stays open.
 setInterval(loadBoard, 60000);

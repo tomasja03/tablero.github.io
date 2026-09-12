@@ -1,25 +1,35 @@
-# iPhone / Safari cache fix
+# Rotación automática de Hospitalidad
 
-Replace only `index.html` with this version.
+Se agregó una segunda rotación independiente:
 
-The important changes are:
-
-```html
-<link rel="stylesheet" href="styles.css?v=20260912-3">
-<script src="script.js?v=20260912-3"></script>
+```json
+"hospitalityRotation": {
+  "groups": 4,
+  "anchorSunday": "2026-09-06",
+  "anchorGroup": 1
+}
 ```
 
-The version query makes Safari treat the assets as new URLs instead of reusing an older cached `script.js`.
+Esto produce:
 
-## Future updates
+- Semana del 6 de septiembre → Grupo 1
+- Semana del 13 de septiembre → Grupo 2
+- Semana del 20 de septiembre → Grupo 3
+- Semana del 27 de septiembre → Grupo 4
+- Semana del 4 de octubre → Grupo 1
 
-Whenever `script.js` or `styles.css` changes, increment the version in `index.html`.
+El anuncio usa:
 
-Examples:
+```json
+{
+  "type": "hospitality",
+  "title": "Hospitalidad",
+  "important": true
+}
+```
 
-- `script.js?v=4`
-- `styles.css?v=4`
+El texto se genera automáticamente:
 
-or use a date/release number.
+`Recordatorio para el GRUPO X que tiene este privilegio.`
 
-`data.json` already uses a changing query parameter in JavaScript, so its content is fetched fresh.
+La rotación cambia cada domingo usando la hora de Ecuador.
