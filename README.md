@@ -1,17 +1,20 @@
-# Congregación Déleg — Tablero Informativo
+# Reunión dinámica
 
-Para la mayoría de las actualizaciones, solo edite `data.json`.
+La próxima reunión se calcula automáticamente usando la zona horaria de Ecuador:
 
-## Archivos
-- `index.html` — estructura
-- `styles.css` — diseño
-- `script.js` — carga la información
-- `data.json` — **contenido que se actualiza normalmente**
+`America/Guayaquil`
 
-## Ejemplos
-Cambie `nextMeeting` para editar la próxima reunión.
-Agregue objetos a `announcements` para nuevos anuncios.
-Agregue objetos a `calendar` para nuevas fechas.
-Cambie `url` dentro de `quickLinks` para enlazar documentos o páginas.
+El horario se configura en `data.json`:
 
-Suba los cuatro archivos al directorio raíz de GitHub Pages.
+- Jueves — 7:00 p. m.
+- Sábado — 6:00 p. m.
+
+No es necesario editar fechas cada semana.
+
+Al llegar a la hora de inicio de una reunión, el tablero cambia automáticamente a la siguiente reunión programada.
+
+Ejemplo:
+- Antes de las 6:00 p. m. del sábado → muestra la reunión del sábado.
+- Desde las 6:00 p. m. del sábado → muestra la reunión del jueves siguiente.
+
+El navegador vuelve a evaluar el horario cada 60 segundos.
