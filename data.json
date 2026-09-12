@@ -46,31 +46,31 @@
       "type": "hospitality",
       "title": "Hospitalidad",
       "important": true
-    }
+    },
     {
       "title": "Actividad de predicación",
-      "text": "Por la campana, nos reuniremos en el Salón del Reino.",
+      "text": "Por la campaña, nos reuniremos en el Salón del Reino.",
       "important": true
-    },
+    }
   ],
   "calendar": [
     {
       "month": "Nov",
       "day": "22",
       "title": "Asamblea de Circuito con el Representante de la Sucursal",
-      "text": "Haz de Jehova tu mayor alegria."
+      "text": "Haz de Jehová tu mayor alegría."
     },
     {
       "month": "Ene",
       "day": "16",
       "title": "Asamblea de Circuito con el superintendente de circuito",
-      "text": "El que confia en Jehova es feliz."
+      "text": "El que confía en Jehová es feliz."
     },
     {
       "month": "Ene",
       "day": "26 al 31",
       "title": "Visita del Superintendente de Circuito",
-      "text": "Mas informacion al acercarse las fechas."
+      "text": "Más información al acercarse las fechas."
     }
   ],
   "quickLinks": [
