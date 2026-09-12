@@ -44,20 +44,20 @@
   ],
   "calendar": [
     {
-      "month": "Nov",
+      "month": "NOV",
       "day": "22",
       "title": "Asamblea de Circuito con el Representante de la Sucursal",
       "text": "Haz de Jehova tu mayor alegria."
     },
     {
-      "month": "Ene",
+      "month": "ENE",
       "day": "16",
       "title": "Asamblea de Circuito con el superintendente de circuito",
       "text": "El que confia en Jehova es feliz."
     },
     {
-      "month": "Ene",
-      "day": "26 al 31",
+      "month": "ENE",
+      "day": "26 - 31",
       "title": "Visita del Superintendente de Circuito",
       "text": "Mas informacion al acercarse las fechas."
     }
