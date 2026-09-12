@@ -4,11 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#174651">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <title>Congregación Déleg | Tablero Informativo</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Franklin:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+
+  <!-- Change this version whenever styles.css changes -->
+  <link rel="stylesheet" href="styles.css?v=20260912-3">
 </head>
 <body>
   <header class="hero">
@@ -18,43 +25,80 @@
         <h1 id="boardTitle">Tablero Informativo</h1>
         <p class="subtitle" id="boardSubtitle">Información, anuncios y actividades</p>
       </div>
-      <div class="today-card"><span>HOY</span><strong id="todayDate">—</strong></div>
+
+      <div class="today-card">
+        <span>HOY</span>
+        <strong id="todayDate">—</strong>
+      </div>
     </div>
   </header>
 
   <main class="wrap board">
     <section class="card featured">
       <div class="section-header">
-        <div><p class="section-kicker" id="meetingKicker">PRÓXIMA REUNIÓN</p><h2 id="meetingTitle">—</h2></div>
+        <div>
+          <p class="section-kicker" id="meetingKicker">PRÓXIMA REUNIÓN</p>
+          <h2 id="meetingTitle">—</h2>
+        </div>
         <span class="pill">Próximo</span>
       </div>
+
       <div class="meeting-grid">
-        <div class="info-box"><span>Fecha</span><strong id="meetingDate">—</strong></div>
-        <div class="info-box"><span>Hora</span><strong id="meetingTime">—</strong></div>
-        <div class="info-box"><span>Lugar</span><strong id="meetingLocation">—</strong></div>
+        <div class="info-box">
+          <span>Fecha</span>
+          <strong id="meetingDate">—</strong>
+        </div>
+        <div class="info-box">
+          <span>Hora</span>
+          <strong id="meetingTime">—</strong>
+        </div>
+        <div class="info-box">
+          <span>Lugar</span>
+          <strong id="meetingLocation">—</strong>
+        </div>
       </div>
+
       <p class="meeting-note" id="meetingNote"></p>
     </section>
 
     <section class="card">
-      <div class="section-header"><div><p class="section-kicker">ANUNCIOS</p><h2>Anuncios importantes</h2></div></div>
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">ANUNCIOS</p>
+          <h2>Anuncios importantes</h2>
+        </div>
+      </div>
       <div id="announcements" class="stack"></div>
     </section>
 
     <section class="card">
-      <div class="section-header"><div><p class="section-kicker">CALENDARIO</p><h2>Próximas fechas</h2></div></div>
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">CALENDARIO</p>
+          <h2>Próximas fechas</h2>
+        </div>
+      </div>
       <div id="calendar" class="stack"></div>
     </section>
 
     <section class="card quick-card">
-      <div class="section-header"><div><p class="section-kicker">ACCESOS RÁPIDOS</p><h2>Recursos</h2></div></div>
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">ACCESOS RÁPIDOS</p>
+          <h2>Recursos</h2>
+        </div>
+      </div>
       <div id="quickLinks" class="quick-grid"></div>
     </section>
 
     <section id="statusMessage" class="status" hidden></section>
   </main>
 
-  <footer class="wrap footer"><span id="lastUpdated">Actualizado: —</span></footer>
-  <script src="script.js"></script>
+  <footer class="wrap footer">
+    <span id="lastUpdated">Actualizado: —</span>
+  </footer>
+
+  <!-- Change this version whenever script.js changes -->
+  <script src="script.js?v=20260912-3"></script>
 </body>
 </html>

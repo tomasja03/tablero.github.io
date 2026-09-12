@@ -1,20 +1,25 @@
-# Reunión dinámica
+# iPhone / Safari cache fix
 
-La próxima reunión se calcula automáticamente usando la zona horaria de Ecuador:
+Replace only `index.html` with this version.
 
-`America/Guayaquil`
+The important changes are:
 
-El horario se configura en `data.json`:
+```html
+<link rel="stylesheet" href="styles.css?v=20260912-3">
+<script src="script.js?v=20260912-3"></script>
+```
 
-- Jueves — 7:00 p. m.
-- Sábado — 6:00 p. m.
+The version query makes Safari treat the assets as new URLs instead of reusing an older cached `script.js`.
 
-No es necesario editar fechas cada semana.
+## Future updates
 
-Al llegar a la hora de inicio de una reunión, el tablero cambia automáticamente a la siguiente reunión programada.
+Whenever `script.js` or `styles.css` changes, increment the version in `index.html`.
 
-Ejemplo:
-- Antes de las 6:00 p. m. del sábado → muestra la reunión del sábado.
-- Desde las 6:00 p. m. del sábado → muestra la reunión del jueves siguiente.
+Examples:
 
-El navegador vuelve a evaluar el horario cada 60 segundos.
+- `script.js?v=4`
+- `styles.css?v=4`
+
+or use a date/release number.
+
+`data.json` already uses a changing query parameter in JavaScript, so its content is fetched fresh.
