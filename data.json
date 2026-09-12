@@ -8,46 +8,46 @@
   "nextMeeting": {
     "kicker": "PRÓXIMA REUNIÓN",
     "title": "Reunión de fin de semana",
-    "date": "Domingo",
-    "time": "10:00 a. m.",
+    "date": "Sabado",
+    "time": "6:00 p. m.",
     "location": "Salón del Reino",
     "note": "Por favor, llegue con tiempo suficiente para saludar y ocupar su lugar."
   },
   "announcements": [
     {
       "title": "Limpieza del Salón",
-      "text": "Recordatorio amistoso para quienes tienen asignación esta semana.",
+      "text": "Recordatorio amistoso para el grupo 2 que tienen este privilegio.",
       "important": true
     },
     {
       "title": "Actividad de predicación",
-      "text": "Consulte con su grupo para confirmar horario y punto de encuentro.",
-      "important": false
+      "text": "Por la campana, nos reuniremos en el Salón del Reino.",
+      "important": true
     },
     {
       "title": "Próxima asamblea",
-      "text": "Los detalles de transporte y horarios se publicarán aquí.",
+      "text": "Asamblea de Circuito con el Representante de la Sucursal: 22 de Nov.",
       "important": false
     }
   ],
   "calendar": [
     {
-      "month": "SEP",
-      "day": "20",
-      "title": "Actividad especial",
-      "text": "Información adicional próximamente."
+      "month": "Nov",
+      "day": "22",
+      "title": "Asamblea de Circuito con el Representante de la Sucursal",
+      "text": "Haz de Jehova tu mayor alegria."
     },
     {
-      "month": "SEP",
-      "day": "27",
-      "title": "Limpieza general",
-      "text": "Después de la reunión."
+      "month": "Ene",
+      "day": "16",
+      "title": "Asamblea de Circuito con el superintendente de circuito",
+      "text": "El que confia en Jehova es feliz."
     },
     {
-      "month": "OCT",
-      "day": "04",
-      "title": "Recordatorio de programa",
-      "text": "Revise el programa actualizado."
+      "month": "Ene",
+      "day": "26 al 31",
+      "title": "Visita del Superintendente de Circuito",
+      "text": "Mas informacion al acercarse las fechas."
     }
   ],
   "quickLinks": [
