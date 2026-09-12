@@ -43,16 +43,16 @@
       "important": true
     },
     {
-      "title": "Actividad de predicación",
-      "text": "Por la campana, nos reuniremos en el Salón del Reino.",
-      "important": true
-    },
-    {
       "type": "hospitality",
       "title": "Hospitalidad",
       "important": true
     }
   ],
+    {
+      "title": "Actividad de predicación",
+      "text": "Por la campana, nos reuniremos en el Salón del Reino.",
+      "important": true
+    },
   "calendar": [
     {
       "month": "Nov",
