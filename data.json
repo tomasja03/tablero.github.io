@@ -5,18 +5,30 @@
     "subtitle": "Información, anuncios y actividades",
     "lastUpdated": "12 de septiembre de 2026"
   },
-  "nextMeeting": {
-    "kicker": "PRÓXIMA REUNIÓN",
-    "title": "Reunión de fin de semana",
-    "date": "Sabado",
-    "time": "6:00 p. m.",
-    "location": "Salón del Reino",
-    "note": "Por favor, llegue con tiempo suficiente para saludar y ocupar su lugar."
-  },
+  "meetingSchedule": [
+    {
+      "day": 4,
+      "dayName": "Jueves",
+      "title": "Reunión de entre semana",
+      "time": "19:00",
+      "displayTime": "7:00 p. m.",
+      "location": "Salón del Reino",
+      "note": "Le animamos a llegar con suficiente tiempo para saludar y ocupar su lugar."
+    },
+    {
+      "day": 6,
+      "dayName": "Sábado",
+      "title": "Reunión de fin de semana",
+      "time": "18:00",
+      "displayTime": "6:00 p. m.",
+      "location": "Salón del Reino",
+      "note": "Le animamos a llegar con suficiente tiempo para saludar y ocupar su lugar."
+    }
+  ],
   "announcements": [
     {
       "title": "Limpieza del Salón",
-      "text": "Recordatorio amistoso para el grupo 2 que tienen este privilegio.",
+      "text": "Recordatorio amistoso para el GRUPO 2 que tienen este privilegio.",
       "important": true
     },
     {
