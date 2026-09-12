@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f3d4a" />
+  <title>Tablero Informativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Franklin:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <p class="eyebrow">TABLERO DIGITAL</p>
+        <h1>Tablero Informativo</h1>
+        <p class="subtitle">Información, anuncios y actividades</p>
+      </div>
+      <div class="date-card">
+        <span id="todayLabel">Hoy</span>
+        <strong id="todayDate">—</strong>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <section class="card featured-card">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">PRÓXIMA ACTIVIDAD</p>
+          <h2 id="nextEventTitle">Reunión de fin de semana</h2>
+        </div>
+        <span class="badge">Próximo</span>
+      </div>
+
+      <div class="event-grid">
+        <div>
+          <span class="label">Fecha</span>
+          <strong id="nextEventDate">Domingo</strong>
+        </div>
+        <div>
+          <span class="label">Hora</span>
+          <strong id="nextEventTime">10:00 a. m.</strong>
+        </div>
+        <div>
+          <span class="label">Lugar</span>
+          <strong id="nextEventLocation">Salón principal</strong>
+        </div>
+      </div>
+
+      <p class="event-note" id="nextEventNote">
+        Por favor, llegue con tiempo suficiente para saludar y ocupar su lugar.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">ANUNCIOS</p>
+          <h2>Esta semana</h2>
+        </div>
+      </div>
+      <div id="announcementsList" class="announcement-list"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">CALENDARIO</p>
+          <h2>Próximas fechas</h2>
+        </div>
+      </div>
+      <div id="calendarList" class="calendar-list"></div>
+    </section>
+
+    <section class="card quick-links-card">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">ACCESOS RÁPIDOS</p>
+          <h2>Recursos</h2>
+        </div>
+      </div>
+
+      <div class="quick-links">
+        <a class="quick-link" href="#" aria-label="Programa">
+          <span class="quick-icon">📄</span>
+          <span>
+            <strong>Programa</strong>
+            <small>Ver programa actual</small>
+          </span>
+        </a>
+
+        <a class="quick-link" href="#" aria-label="Calendario">
+          <span class="quick-icon">📅</span>
+          <span>
+            <strong>Calendario</strong>
+            <small>Fechas importantes</small>
+          </span>
+        </a>
+
+        <a class="quick-link" href="#" aria-label="Contactos">
+          <span class="quick-icon">☎️</span>
+          <span>
+            <strong>Contactos</strong>
+            <small>Información útil</small>
+          </span>
+        </a>
+
+        <a class="quick-link" href="https://www.jw.org/es/" target="_blank" rel="noopener noreferrer" aria-label="JW.org">
+          <span class="quick-icon">🌐</span>
+          <span>
+            <strong>JW.ORG</strong>
+            <small>Abrir sitio oficial</small>
+          </span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span id="lastUpdated">Actualizado: —</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
